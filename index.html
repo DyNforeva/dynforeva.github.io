@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nico</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Inconsolata:wght@200..900&family=Meie+Script&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+  <!-- Se incluye la librería de jQuery desde CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      </script>
+  <style>
+    /* Estilos generales */
+    body {
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column-reverse;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      
+    }
+    /* Contenedor del formulario de contraseña */
+    #passwordContainer {
+      text-align: center;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #3498db;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    /* Contenedor del sobre */
+    #envelopeContainer {
+      display: none;
+      position: relative;
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+    }
+    /* Sobre */
+    #envelope {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border: 2px solid #ccc;
+      /*border-radius: 10px;*/
+      font-family: "Charm", cursive;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 30pt;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    /* Aleta del sobre como triángulo */
+    #flap {
+      width: 0;
+      height: 0;
+      /* Creación de un triángulo: 
+             Los bordes izquierdo y derecho transparentes definen el ancho,
+             y el borde inferior con color crea el triángulo */
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 100px solid #f9f1dd;
+      /* Origen de la transformación para animar la rotación desde el centro superior */
+      /*transform-origin: 50% 0%;*/
+      transform: rotate(180deg);
+    }
+
+    #animation_flap{
+        position: absolute;
+        top: -100px;
+        padding-top: 100px;
+        left: 0;
+        width: 300px;
+    }
+    /* Carta */
+    #letter {
+      max-height: 90vh;
+    overflow: scroll;
+      width: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+      display: none;
+      font-size: 20px;
+      line-height: 2.4;
+    }
+  </style>
+</head>
+<body>
+  <!-- Formulario para ingresar la contraseña -->
+  <div id="passwordContainer">
+    <h2>Ingresa la contraseña</h2>
+    <input type="password" id="passwordInput" placeholder="Contraseña">
+    <br>
+    <button id="enterBtn">Entrar</button>
+    <p id="errorMsg" style="color:red; display:none;">Contraseña incorrecta</p>
+  </div>
+  
+  <div id="envelopeContainer">
+    
+    <div id="envelope">
+        <svg id="heart" style="position: absolute; top: 75px; left: 125px; z-index: 999;" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="red">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+    <div id="animation_flap">
+        <div id="flap"></div>
+    </div>
+      
+      <div id="letter">
+        <img style="width: 100%;" src="intro.png"/>
+        <div style="padding-left: 15px; padding-right: 15px; margin-top: -20px;">
+            <p>Te confieso que amo las tradiciones. Me encanta esta nueva tradición de escribirte en este día tan significativo para nosotros y que marca el tiempo desde nuestra primera interacción. Cuando escribo para ti quedo absorto en las letras y emociono muchísimo porque te imagino contento de recibir y leer una carta hecha para ti. Escribir me permite organizar mis pensamientos y comunicar muy claramente cosas que cuando hablo no encuentro la manera de decirlas. </p>
+        <p>Las relaciones son super complejas y retadoras, especialmente cuando hay sentimientos reales involucrados. Aún con todo el amor que sentimos el uno por el otro, no siempre es fácil demostrar ese amor e inclusive no siempre es fácil recibirlo. Algunos retos que creemos haber superado, de vez en cuando regresan, nos hacen dudar y nos pueden volver a hacer sentir inseguridades. El amor es la base de toda relación amorosa, pero no todo lo debe dictar el corazón, también tenemos que utilizar nuestra razonamiento para demostrar empatía y cuidar la relación que hemos construido. Esto es una de las cualidades que más admiro de ti, haces un esfuerzo real por entender mis sentimientos y mis posiciones. Esto ha logrado que te tenga una confianza inmensa en ti, en contarte todas las cosas buenas y malas también, y sentirme muy seguro de no esconderte nada. Es muy reconfortante saber que cuento contigo, un ser extraordinario que me ama y se preocupa por mi. Ahora bien, cuando pones tu confianza en mi, todas esas dudas desaparecen y me reafirman que ambos estamos en el mismo barco. Esa es la razón por la que la playlist que te hice para hoy tiene el título de siempreestoypati que es el nombre de una canción de Ed Maverick que me gustó mucho, porque no importa cuando, siempre estaré para ti.</p>
+        <p>Los nueves son días muy emocionantes para mi, llenos de sentimientos muy fuertes. No te niego que así como se me vienen recuerdos de tus primeros mensajes, las primeras citas que tuvimos así como las numerosas videollamadas que me enamoraron de ti, también recuerdo con un mucho dolor la semana del 9 de diciembre. Aún en esos momentos algo siempre me quedó muy claro, me haces sentir vivo. Cuando estoy a tu lado es cuando entiendo lo mucho que significa sentir amor, que no solo incluye aquellos momentos de felicidad incalculable sino también momentos de profunda tristeza. Te amo, y aunque las circunstancias solo nos permitieron vernos hoy unas pocas horas, quiero decirte que hoy he pensado mucho en lo emocionante que han sido estos últimos 10 meses, desde el 9 de mayo del 2024 que llegaste a mi vida y le diste un giro de 180 grados.</p>
+        <p>Equivocarse y estar en cambio constante es parte de la naturaleza del ser humano, en últimas, somos imperfectos pero tenemos la habilidad de mejorar. Nuestra relación es perfecta porque en medio de esa imperfección natural de la vida humana el mero hecho de que se haya dado un amor tan especial con toda la probabilidad en nuestra contra y las múltiples factores externas negativos que siempre están presentes, es una ocurrencia tan improbable que solo la puedo describir con la palabra “perfección”. Tu eres perfecto para mi, y con eso no estoy diciendo que no tengas defectos ni mucho menos, pero si que lo que ese conjunto único de características que te hacen ser tu, tanto tus cualidades como defectos, encajan con lo que soy perfectamente como un rompecabezas.</p>
+        <p>Siempre he pensando que las relaciones como la nuestra, en donde amar conlleva consecuencias, son aquellas que no tienen que ser probadas.  La misma complejidad demuestra el amor tan grande que sentimos, porque estamos dispuestos a arriesgarnos a construir algo a pesar de que muchos estén en contra. Cada momento que paso contigo, cada detalle o esfuerzo por más pequeño que sea, lo veo y nunca lo daré por sentado. Amo la relación que hemos construido juntos! No puedo estar más orgulloso de ser tu novio. Recuerdo mucho ese día que estuvimos en la casa de Mateito y lo mucho que me encantó contar la historia de como nos conocimos. Siempre había soñado con tener una relación así, pero honestamente nunca creí que me llegara a pasar a mi. Me siento tan orgulloso, eres lo más importante para mi!</p>
+        <p>Termino esta carta virtual recordándote lo mucho que te amo y deseo que estés bien, y también reiterando que aquí estoy para lo que sea. Espero disfrutes de esta pequeña carta y la playlist que te hice. Celebro a la distancia estos primeros 10 meses de haber conocido a mi gran amor! Gracias por hacer mi vida tan feliz.</p>
+        <p>Por siempre tuyo,</p>
+        </div>
+        <img style="width: 100%;" src="firma.png"/>
+        <iframe style="border-radius:12px; position: fixed; bottom: -40px; margin-top: 30px; right: -330px;" src="https://open.spotify.com/embed/playlist/0NENAudfII4gqjbBzeODC6?utm_source=generator" width="300px" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <!-- Contenedor del sobre -->
+        
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <script>
+    // Al cargar el documento se configura el evento click con jQuery
+    $(document).ready(function(){
+      $("#enterBtn").click(function(){
+        var password = $("#passwordInput").val();
+        if(password === "amor"){
+          $("#errorMsg").hide();
+          // Se oculta el formulario y se muestra el sobre
+          $("#passwordContainer").fadeOut(500, function(){
+            $("#envelopeContainer").fadeIn(500, function(){
+              // Se inicia la animación del triángulo (flap) tras un breve retraso
+              setTimeout(openEnvelope, 1000);
+            });
+          });
+        } else {
+          $("#errorMsg").fadeIn();
+        }
+      });
+    });
+
+    // Función para animar la rotación del triángulo (flap) usando jQuery
+    function openEnvelope(){
+        $("#heart").hide( "explode", {pieces: 50 }, 2000 );
+
+        
+                //$("#animation_flap").fadeOut(2000);
+           
+      $({deg: 0}).animate({deg: 1}, {
+        duration: 1000,
+        step: function(now) {
+          $("#animation_flap").css("transform", "rotateX(" + (now * 180) + "deg)");
+        },
+        complete: function(){
+          // Al terminar la animación se muestra la carta
+          $('#envelopeContainer').animate({
+            width: '700px',
+        });
+        $('#envelopeContainer').css(
+           "height", "auto"
+        );
+          $("#letter").fadeIn(500);
+          
+          $("#animation_flap").fadeOut(500);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
