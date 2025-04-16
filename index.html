@@ -1,112 +1,147 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nico</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Inconsolata:wght@200..900&family=Meie+Script&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
-  <!-- Se incluye la librería de jQuery desde CDN -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
       </script>
-  <style>
-    /* Estilos generales */
-    body {
-      background: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      flex-direction: column-reverse;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      
-    }
-    /* Contenedor del formulario de contraseña */
-    #passwordContainer {
-      text-align: center;
-    }
-    input[type="password"] {
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      background: #3498db;
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #2980b9;
-    }
-    /* Contenedor del sobre */
-    #envelopeContainer {
-      display: none;
-      position: relative;
-      width: 300px;
-      height: 200px;
-      perspective: 1000px;
-    }
-    /* Sobre */
-    #envelope {
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      border: 2px solid #ccc;
-      /*border-radius: 10px;*/
-      font-family: "Charm", cursive;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 30pt;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      position: relative;
-    }
-    /* Aleta del sobre como triángulo */
-    #flap {
-      width: 0;
-      height: 0;
-      /* Creación de un triángulo: 
-             Los bordes izquierdo y derecho transparentes definen el ancho,
-             y el borde inferior con color crea el triángulo */
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-bottom: 100px solid #f9f1dd;
-      /* Origen de la transformación para animar la rotación desde el centro superior */
-      /*transform-origin: 50% 0%;*/
-      transform: rotate(180deg);
-    }
-
-    #animation_flap{
-        position: absolute;
-        top: -100px;
-        padding-top: 100px;
-        left: 0;
-        width: 300px;
-    }
-    /* Carta */
-    #letter {
-      max-height: 90vh;
-    overflow: scroll;
-      width: 100%;
-      padding: 30px;
-      box-sizing: border-box;
-      display: none;
-      font-size: 20px;
-      line-height: 2.4;
-    }
-  </style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-  <!-- Formulario para ingresar la contraseña -->
+  
+      <style>
+        /* Estilos generales */
+        /* Contenedor del formulario de contraseña */
+        #passwordContainer {
+          text-align: center;
+          position: fixed;
+          height: 100vh;
+          width: 100%;
+          background: white ;
+          align-items: center;
+          justify-self: center;
+          align-content: center;
+        }
+        input[type="password"] {
+          padding: 10px;
+          font-size: 16px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          background: #3498db;
+          color: #fff;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        button:hover {
+          background: #2980b9;
+        }
+      </style>
+        <style>
+            header{
+                width: 100% !important;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            body, div{
+                box-sizing: border-box;
+                width: 100%;
+               
+                margin: 0;
+                font-family: "National Park", sans-serif;
+            }
+            body{
+                height: 100vh;
+            }
+            h1{
+                margin: 0 !important;
+            }
+    
+            .container{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                overflow-x: scroll;
+            }
+            .container_h{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            .card{
+                width: 200px;
+                height: 200px;
+                border: 2px black !important;
+                border-radius: 5px;
+                margin: 15px;
+                box-shadow: 0 0 20px rgb(200, 200, 200);
+                background-image: url("DyN.png");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: background-image 0.3s ease;
+            }
+            #info{
+                overflow-y: scroll;
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                left: 0;
+                background: rgba(0, 0, 0, 0.943);
+            }
+
+            #intro{
+                overflow-y: scroll;
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                left: 0;
+                background: rgba(0, 0, 0, 0.943);
+            }
+            .info_imgs{
+                flex: 1;
+                display: flex;
+                width: 100%;
+                max-width: 600px;
+                justify-content: center;
+            }
+            .white{
+                color: white;
+            }
+            img{
+                margin: 10px;
+                height: 50%;
+                width: 40% !important;
+                border-radius: 2px;
+                border: 2px solid white;
+            }
+        </style>
+
+    <!-- Formulario para ingresar la contraseña -->
   <div id="passwordContainer">
     <h2>Ingresa la contraseña</h2>
     <input type="password" id="passwordInput" placeholder="Contraseña">
@@ -115,83 +150,366 @@
     <p id="errorMsg" style="color:red; display:none;">Contraseña incorrecta</p>
   </div>
   
-  <div id="envelopeContainer">
-    
-    <div id="envelope">
-        <svg id="heart" style="position: absolute; top: 75px; left: 125px; z-index: 999;" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="red">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-    <div id="animation_flap">
-        <div id="flap"></div>
-    </div>
-      
-      <div id="letter">
-        <img style="width: 100%;" src="intro.png"/>
-        <div style="padding-left: 15px; padding-right: 15px; margin-top: -20px;">
-            <p>Te confieso que amo las tradiciones. Me encanta esta nueva tradición de escribirte en este día tan significativo para nosotros y que marca el tiempo desde nuestra primera interacción. Cuando escribo para ti quedo absorto en las letras y emociono muchísimo porque te imagino contento de recibir y leer una carta hecha para ti. Escribir me permite organizar mis pensamientos y comunicar muy claramente cosas que cuando hablo no encuentro la manera de decirlas. </p>
-        <p>Las relaciones son super complejas y retadoras, especialmente cuando hay sentimientos reales involucrados. Aún con todo el amor que sentimos el uno por el otro, no siempre es fácil demostrar ese amor e inclusive no siempre es fácil recibirlo. Algunos retos que creemos haber superado, de vez en cuando regresan, nos hacen dudar y nos pueden volver a hacer sentir inseguridades. El amor es la base de toda relación amorosa, pero no todo lo debe dictar el corazón, también tenemos que utilizar nuestra razonamiento para demostrar empatía y cuidar la relación que hemos construido. Esto es una de las cualidades que más admiro de ti, haces un esfuerzo real por entender mis sentimientos y mis posiciones. Esto ha logrado que te tenga una confianza inmensa en ti, en contarte todas las cosas buenas y malas también, y sentirme muy seguro de no esconderte nada. Es muy reconfortante saber que cuento contigo, un ser extraordinario que me ama y se preocupa por mi. Ahora bien, cuando pones tu confianza en mi, todas esas dudas desaparecen y me reafirman que ambos estamos en el mismo barco. Esa es la razón por la que la playlist que te hice para hoy tiene el título de siempreestoypati que es el nombre de una canción de Ed Maverick que me gustó mucho, porque no importa cuando, siempre estaré para ti.</p>
-        <p>Los nueves son días muy emocionantes para mi, llenos de sentimientos muy fuertes. No te niego que así como se me vienen recuerdos de tus primeros mensajes, las primeras citas que tuvimos así como las numerosas videollamadas que me enamoraron de ti, también recuerdo con un mucho dolor la semana del 9 de diciembre. Aún en esos momentos algo siempre me quedó muy claro, me haces sentir vivo. Cuando estoy a tu lado es cuando entiendo lo mucho que significa sentir amor, que no solo incluye aquellos momentos de felicidad incalculable sino también momentos de profunda tristeza. Te amo, y aunque las circunstancias solo nos permitieron vernos hoy unas pocas horas, quiero decirte que hoy he pensado mucho en lo emocionante que han sido estos últimos 10 meses, desde el 9 de mayo del 2024 que llegaste a mi vida y le diste un giro de 180 grados.</p>
-        <p>Equivocarse y estar en cambio constante es parte de la naturaleza del ser humano, en últimas, somos imperfectos pero tenemos la habilidad de mejorar. Nuestra relación es perfecta porque en medio de esa imperfección natural de la vida humana el mero hecho de que se haya dado un amor tan especial con toda la probabilidad en nuestra contra y las múltiples factores externas negativos que siempre están presentes, es una ocurrencia tan improbable que solo la puedo describir con la palabra “perfección”. Tu eres perfecto para mi, y con eso no estoy diciendo que no tengas defectos ni mucho menos, pero si que lo que ese conjunto único de características que te hacen ser tu, tanto tus cualidades como defectos, encajan con lo que soy perfectamente como un rompecabezas.</p>
-        <p>Siempre he pensando que las relaciones como la nuestra, en donde amar conlleva consecuencias, son aquellas que no tienen que ser probadas.  La misma complejidad demuestra el amor tan grande que sentimos, porque estamos dispuestos a arriesgarnos a construir algo a pesar de que muchos estén en contra. Cada momento que paso contigo, cada detalle o esfuerzo por más pequeño que sea, lo veo y nunca lo daré por sentado. Amo la relación que hemos construido juntos! No puedo estar más orgulloso de ser tu novio. Recuerdo mucho ese día que estuvimos en la casa de Mateito y lo mucho que me encantó contar la historia de como nos conocimos. Siempre había soñado con tener una relación así, pero honestamente nunca creí que me llegara a pasar a mi. Me siento tan orgulloso, eres lo más importante para mi!</p>
-        <p>Termino esta carta virtual recordándote lo mucho que te amo y deseo que estés bien, y también reiterando que aquí estoy para lo que sea. Espero disfrutes de esta pequeña carta y la playlist que te hice. Celebro a la distancia estos primeros 10 meses de haber conocido a mi gran amor! Gracias por hacer mi vida tan feliz.</p>
-        <p>Por siempre tuyo,</p>
+
+    <header>
+        <div style="text-align: center; width: 100%;">
+        <h1 style="margin-bottom: 0px; margin-top: 0;">D+N Memoria</h1>
+        <h2 style="margin-bottom: 0px; margin-top: 0;">Nivel <span id="nivel"></span></h2>
+        <h3 style="margin-bottom: 0px; margin-top: 0;">Te amoo! ❤️</h3>
         </div>
-        <img style="width: 100%;" src="firma.png"/>
-        <iframe style="border-radius:12px; position: fixed; bottom: -40px; margin-top: 30px; right: -330px;" src="https://open.spotify.com/embed/playlist/0NENAudfII4gqjbBzeODC6?utm_source=generator" width="300px" height="300px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  <!-- Contenedor del sobre -->
-        
-      </div>
-      
+    </header>
+    <div class="container">
+        <div class="container_h">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+        <div class="container_h">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+        <div class="container_h">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
     </div>
-    
-  </div>
-  
-  <script>
-    // Al cargar el documento se configura el evento click con jQuery
+
+    <div id="info" style="display: none; padding: 20px;">
+        
+        <div style="display: flex; height: 100vh !important; align-items: center; justify-content: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <h1 id="mensaje" style="margin-bottom: 20px !important; color: white">Mensaje!</h1>  
+                <div class="info_imgs">
+                    <img src="IMG_0560.jpeg"/>
+                    <img src="IMG_0560.jpeg"/>
+                </div>
+                <h2 style="text-align: center;" class="white">Me recuerda a ...</h2>
+                <button style="border: 2px solid white;     padding: 10px; border-radius: 5px; background-color: green;">
+                    <h3 style="margin: 0 !important; color: white;">CONTINUAR</h3>
+                </button>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <div id="intro" style="display: none; padding: 20px;">
+        
+        <div style="display: flex; height: 100vh !important; align-items: center; justify-content: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <h1 id="mensaje" style="margin-bottom: 20px !important; color: white">Un pequeño jueguito de memoria...</h1> 
+                <div class="info_imgs">
+                    <img src="DyN.png"/>
+                </div>
+                <h2 class="white" style="text-align: center;">Para recordar todos los buenos momentos que hemos pasado juntos estos 5 meses...
+                <br>Para que la acompañes con las salsas románticas que recopilé pensando en ti, y que nunca te pase...<br> espero la guardes yo veré 🤨</h5><br>
+                <button  onclick="window.open('https://open.spotify.com/playlist/7AGmsNJLyln006U7CxO48u?si=588d2ff1c2e34e29','_blank')" style="border: 2px solid white;     padding: 10px; border-radius: 5px; background-color: green;">
+                    <h3 style="margin: 0 !important; color: white;">PLAYLIST SALSITA ROMÁNTICA</h3>
+                </button>
+                <button onclick="$('#intro').fadeOut(500)" style="border: 2px solid white;     padding: 10px; border-radius: 5px; background-color: rgb(179, 0, 24);">
+                    <h3 style="margin: 0 !important; color: white;">CONTINUAR</h3>
+                </button>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <script>
+
+        // Al cargar el documento se configura el evento click con jQuery
     $(document).ready(function(){
       $("#enterBtn").click(function(){
         var password = $("#passwordInput").val();
-        if(password === "10Meses"){
-          $("#errorMsg").hide();
-          // Se oculta el formulario y se muestra el sobre
-          $("#passwordContainer").fadeOut(500, function(){
-            $("#envelopeContainer").fadeIn(500, function(){
-              // Se inicia la animación del triángulo (flap) tras un breve retraso
-              setTimeout(openEnvelope, 1000);
-            });
-          });
+        if(password === "5MesesDeAmor!"){
+            $('#passwordContainer').fadeOut()
+            $('#intro').fadeIn(500)
+            start()
         } else {
           $("#errorMsg").fadeIn();
         }
       });
     });
 
-    // Función para animar la rotación del triángulo (flap) usando jQuery
-    function openEnvelope(){
-        $("#heart").hide( "explode", {pieces: 50 }, 2000 );
+let modoTest = false; // Cambia a true para activar el modo test
+
+
+        const niveles = [
+            //nivel 1
+    {
+        photos: [
+            ["0_a.jpeg", "0_a.jpeg"], // salitre magico
+            ["1_c.jpeg", "1_c.jpeg"], // motel
+            ["5_a.jpeg", "5_a.jpeg"], // primera cita
+            ["12_b.jpeg", "12_b.jpeg"], // monfe
+            ["7_b.jpeg", "7_b.jpeg"], // andreita evento
+            ["9_a.jpeg", "9_a.jpeg"], // cumple 4 abril
+        ],
+        legends: [
+            "El día más especial 🥹 con el amor de mi vida! <br> Oficialmente novios, hace 5 meses ❤️!!<br> Todavía es muy loco pensar <br>que soy novio del hombre más increíble del universo",
+            "Jejeje no puedo olvidar lo mucho que me sorprendiste 🥹 ese día!<br>Y lo increíblemente mucho que me encantas 😏<br>Pa cuando repetimos?",
+            "Te juro que tu saco era negro JAJAJAJA<br>La primera vez de todas 🥹, donde todo esto inicio",
+            "Me acuerdo y pienso lo romántico que eres Nicolás!<br>Desde la Monfe, el rooftop y hasta en mi casa, simplemente insuperable",
+            "La primera vez que te presenté con amigos, no llevabas nada en Colombia<br>Y ya estaba tan orgulloso de salir contigo!<br>La primera que presenté a un hombre como mi pareja 🥹",
+            "Awww! Que buen spot!<br>Siempre haciendome sentir en el cielo, además de consentirme en el dia de mi cumple<br>igual hiciste otra celebración que fue la más tierna y mejor que pude tener 🥹"
+        ],
+        grid_x: 4,
+        grid_y: 3,
+    },
+
+      //nivel 2
+      {
+        photos: [
+            ["0_a.jpeg", "0_b.jpeg"], // salitre magico
+            ["1_c.jpeg", "1_b.jpg"], // motel
+            ["5_a.jpeg", "5_b.jpeg"], // primera cita
+            ["12_b.jpeg", "12_a.jpeg"], // monfe
+            ["7_a.jpeg", "7_b.jpeg"], // andreita evento
+            ["9_a.jpeg", "9_b.jpeg"], // cumple 4 abril
+        ],
+        legends: [
+            "Como no, ayyyy los carritos chocones<br>Estaba tan nervioso, tu querías ir directo a la rueda<br>Pero no te dejé porque necesitaba un poco más de tiempo de preparación para pedirte el cuadre 🥹",
+            "Ese día también te regalé el reemplazo del primer earcuff jaja<br>Estaba viendo cual era el que más se parecía al original JAJAJ<br>Acepto que esta estaba muy complejo que lo relacionaras",
+            "El cafecito, luego del helado! y de donde salimos y tuvimos nuestro primer beso<br>Mk estoy llorando de la felicidad mientras hago esto, te amo mucho",
+            "¿En que lugar?: En el cielo! ❤️<br>Eyy pero buena memoria que te acordarás que en la monfe era el cuadro",
+            "Esa vez de Andre, esa era la parte de atrás fue donde nos tomamos foticos<br>Allí nos tomamos una foto en la que tu me estás dando un beso, y es tan tierna 🥹",
+            "Jejeje el regalito de esa noche!<br>Me parecioo muy tierno<br>Además no se como hiciste pero me encanta la fragancia"
+        ],
+        grid_x: 4,
+        grid_y: 3,
+    },
+
+    // nivel 3
+      {
+        photos: [
+            ["0_a.jpeg", "0_b.jpeg"], // salitre magico
+            ["1_c.jpeg", "1_b.jpg"], // motel
+            ["5_a.jpeg", "5_b.jpeg"], // primera cita
+            ["12_b.jpeg", "12_a.jpeg"], // monfe
+            ["7_a.jpeg", "7_b.jpeg"], // andreita evento
+            ["9_a.jpeg", "9_b.jpeg"], // cumple 4 abril
+
+            ["2_a.jpeg", "2_b.jpeg"], // thea
+            ["3_a.jpeg", "3_b.jpeg"], // blue suites
+            ["4_a.jpeg", "4_b.jpeg"], // spotty 
+            ["10_a.jpeg", "11_b.jpeg"], // relaja
+            ["8_a.jpg", "8_b.jpg"], // chiva
+            ["10_b.PNG", "11_a.jpeg"], // llegada
+
+        ],
+        legends: [
+            "Tengo tantos recuerdos de esa noche<br>Pero nunca olvidaré cuando me dijiste: Si!<br>Yo tenía planeado que al momento que volteabas el mini cuadro, te decía ¿Quieres ser mi novio? mientras lo leías<br>Pero no alcancé porque tu inmediatamente dijiste que SII y ahi entendí que todo había valido la pena",
+            "Fue un 15 tan hermoso, de veras recuerdo lo especial que me sentí<br>Me llevaste a Vitto me regalaste la pulserita y me diste una noche inolvidable,<br>contigo se lo que es amor de verdad, que va desde lo más tierno romántico que nace cuando nos vemos hasta lo más loco y apasionado cuando no podemos aguantarnos las ganas",
+            "La pinta y Varietale, solo me quedó faltando la fotico en los helados.<br>Desde el primer día, fui tan feliz contigo!! ",
+            "¿En que lugar?: En el cielo! ❤️<br>Solo me pude sentir aun más en el cielo cuando llegamos a mi apto!!",
+            "Esa vez de Andre, esa era la parte de atrás fue donde nos tomamos foticos<br>Allí nos tomamos una foto en la que tu me estás dando un beso, ❤️ y es tan tierna 🥹",
+            "La noche que me enteré que he desaprovechado los mejores masajes de la vida.. 😋<br>sobre todo porque tiene final feliz incluido JAJAJA 😮‍💨",
+            "JAJAJAJA perdón tenía que ponerlo 😂, la primera vez que salimos a rumbear!<br>Y como no, también tu primer streaptease jajsjsj",
+            "Fui tan feliz contigo! Pero sin joder hablar de todo mientras tomamos vino en la tina, es insuperable.<br>Como puedo pasarla tan bien contigo! es que no entiendo, es demasiado ❤️",
+            "Recuerdas que nos llovió? Jejej pero igual nos metimos a el \"jacuzzy\" que no prendia jajaj 😂<br>amé estar contigo allá, como siempre sorprendiendome 🥹",
+            "Lo dije en la carta y lo repito: el único man que es capaz de verse mejor que Christian Bale en el disfraz de Patrick Bateman 🥵<br>Que gran rumba, la pasé tan increíble, amé nuestras hachas matcheando ",
+            "Jajaja amo esa foto tuya, me encanta cuando salimos juntos!!<br>Esa chiva estuvo muy buena<br>... pero mas bueno tu 🥵",
+            "La primera vez que te quedaste conmigo, en serio no lo voy a olvidar nunca<br>Pasar contigo toda la noche, dormir arrunchaditos, bañarnos.. 🥹<br>Para mi fue un sueño hecho realidad<br>Estar contigo en fisico y comprobar que no solo me encantaba hablar contigo sino lo mucho que me atraes físicamente. Estaba tan seguro que te quería como mi novio! ❤️"
+        ],
+        grid_x: 4,
+        grid_y: 6,
+    },
+
+    // nivel 4
+];
+
+let nivel_actual = 0;
+let indiceParejas = [];
+let parejasEncontradas = 0;
+let totalParejas = 0;
+let firstCard = null;
+let blockClick = false;
+
+
+function obtenerIndicePareja(img1, img2) {
+    const nivel = niveles[nivel_actual];
+    for (let i = 0; i < nivel.photos.length; i++) {
+        const par = nivel.photos[i];
+        if (par.includes(img1) && par.includes(img2)) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+        function set_all(){
+
+        }
+
+        function start() {
+        $("#nivel").text(nivel_actual + 1);
+        generarLayout(nivel_actual);
+    }
+
+
+function setImage(cuadroId, imageUrl, mostrar = true) {
+    const $cuadro = $(`#${cuadroId}`);
+    if (mostrar) {
+        $cuadro.css("background-image", `url(${imageUrl})`);
+    } else {
+        $cuadro.css("background-image", `url(DyN.png)`);
+    }
+}
+
+function generarLayout(nivelIndex) {
+    const nivel = niveles[nivelIndex];
+    const { photos, grid_x, grid_y } = nivel;
+    const flatPhotos = photos.flat();
+
+    const totalCuadros = grid_x * grid_y;
+    totalParejas = flatPhotos.length / 2;
+    parejasEncontradas = 0;
+
+    const indices = Array.from({ length: totalCuadros }, (_, i) => i);
+    const desorganizado = [...indices].sort(() => Math.random() - 0.5);
+    indiceParejas = desorganizado.map(i => i);
+
+    const container = $(".container");
+    container.empty();
+
+    for (let y = 0; y < grid_y; y++) {
+        const row = $('<div class="container_h"></div>');
+        for (let x = 0; x < grid_x; x++) {
+            const index = y * grid_x + x;
+            const cuadroId = `cuadro-${index}`;
+            const card = $(`<div class="card" id="${cuadroId}" data-pos="${index}"></div>`);
+
+            // SIEMPRE asignamos evento
+            card.on("click", function () {
+                if (!$(this).hasClass("descubierta")) {
+                    manejarClick(this);
+                }
+            });
+
+            row.append(card);
+        }
+        container.append(row);
+    }
+
+    // Mostrar imágenes
+    desorganizado.forEach((realIdx, posIdx) => {
+        const img = flatPhotos[realIdx];
+        setImage(`cuadro-${posIdx}`, img, true);
+    });
+
+    // Si NO es test, ocultarlas luego
+    if (!modoTest) {
+        setTimeout(() => {
+            $(".card").each(function () {
+                const pos = $(this).data("pos");
+                const realIdx = indiceParejas[pos];
+                const img = flatPhotos[realIdx];
+                setImage($(this).attr("id"), img, false);
+            });
+        }, 2000);
+    }
+}
+
+function mostrarInfo(imagen1, imagen2, leyenda) {
+    $("#info").fadeIn();
+    $(".info_imgs").html(`
+        <img src="${imagen1}"/>
+        <img src="${imagen2}"/>
+    `);
+    $("#mensaje").text("Congrats!!");
+    $(".white").html(leyenda || "Me recuerda a...");
+}
+
+function sonPareja(img1, img2) {
+    const nivel = niveles[nivel_actual];
+    return nivel.photos.some(par => par.includes(img1) && par.includes(img2));
+}
+
+function manejarClick(cuadro) {
+    if (blockClick) return;
+
+    const pos = parseInt($(cuadro).data("pos"));
+    const realIndex = indiceParejas[pos];
+    const nivel = niveles[nivel_actual];
+    const image = nivel.photos.flat()[realIndex];
+
+
+    // Mostrar imagen
+    setImage($(cuadro).attr("id"), image, true);
+    $(cuadro).addClass("descubierta");
+
+    if (!firstCard) {
+        firstCard = { cuadro, pos, image, realIndex };
+    } else {
+        blockClick = true;
+
+        if (sonPareja(firstCard.image, image) && firstCard.pos !== pos) {
+            // Desactivar clics
+            $(cuadro).off("click");
+            $(firstCard.cuadro).off("click");
+
+            // Mostrar info
+            const parejaIndex = obtenerIndicePareja(firstCard.image, image);
+const leyenda = niveles[nivel_actual].legends[parejaIndex] || "";
+            mostrarInfo(firstCard.image, image, leyenda);
+
+            $("#info button").one("click", function () {
+                $("#info").fadeOut();
+                parejasEncontradas++;
+                firstCard = null;
+                blockClick = false;
+
+                if (parejasEncontradas === totalParejas) {
+                    nivel_actual++;
+                    if (nivel_actual < niveles.length) {
+                        
+                        if (nivel_actual == 1){
+                            alert("Epaaa 🎉!! Ahora vamos a probar tu memoria fotográfica, las parejas de fotos estan relacionadas pero no son las misma, ya sea porque paso en el mismo día o porque están relacionadas. Espero te diviertas y te de tanta emoción como a mi mientras hacía este pequeño jueguito! 🥹❤️");
+                        }
+                        if (nivel_actual == 2){
+                            alert("Nos fuimos con todo!! ");
+                        }
+                        setTimeout(() => start(), 500);
+                    } else {
+                        alert("Felices 5 meses de boyfriends!! 🎉 Lo lograste mi amor!! Espero te haya distraido un poco de la fiebre jeje! Y que hayas recordado algunos momentos especiales que hemos pasado juntos. Se que para nosotros este día es mega importante, y aunque se que no pudimos estar juntos presencialmente me alegra poder haber hecho algo que nos permita celebrar la linda relación que tenemos. Soy inmensamente feliz que soy por ser tu novio!! Te amo como no tienes idea!!<br>Si quieres volver a ver la imagenes sin jugar solo presiona la tecla \"T\" cuando las cartas esten volteadas!");
+                    }
+                }
+            });
+
+        } else {
+            // No es pareja
+            setTimeout(() => {
+                setImage($(cuadro).attr("id"), image, false);
+                setImage($(firstCard.cuadro).attr("id"), firstCard.image, false);
+                $(cuadro).removeClass("descubierta");
+                $(firstCard.cuadro).removeClass("descubierta");
+                firstCard = null;
+                blockClick = false;
+            }, 1000);
+        }
+    }
+}
+
 
         
-                //$("#animation_flap").fadeOut(2000);
-           
-      $({deg: 0}).animate({deg: 1}, {
-        duration: 1000,
-        step: function(now) {
-          $("#animation_flap").css("transform", "rotateX(" + (now * 180) + "deg)");
-        },
-        complete: function(){
-          // Al terminar la animación se muestra la carta
-          $('#envelopeContainer').animate({
-            width: '700px',
-        });
-        $('#envelopeContainer').css(
-           "height", "auto"
-        );
-          $("#letter").fadeIn(500);
-          
-          $("#animation_flap").fadeOut(500);
-        }
-      });
+
+
+
+$(document).on("keydown", function (e) {
+    if (e.key.toLowerCase() === "t") {
+        modoTest = !modoTest;
+        alert("Modo visible " + (modoTest ? "activado ✅" : "desactivado ❌"));
+       
+        start(); // Reinicia nivel
+
     }
-  </script>
+});
+
+
+    </script>
+    
 </body>
 </html>
